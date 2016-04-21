@@ -1,3 +1,3 @@
 # TFS-CreateDefaultWorkItems
 
-##Connects to TFS API and does commonly executed tasks Automatically
+##Connects to TFS API and creates commonly executed tasks Automatically
