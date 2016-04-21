@@ -1,0 +1,3 @@
+﻿1. Add references to the following assemblies
+	Microsoft.TeamFoundation.Common
+	Microsoft.TeamFoundation.Client
