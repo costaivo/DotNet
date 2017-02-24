@@ -1,3 +1,3 @@
-# Dot Net Sample Projects for Beginners to Understand C#
+# Dot Net Sample Projects for Beginners to understand C#
 
 ##List of DotNet
