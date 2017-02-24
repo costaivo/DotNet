@@ -1,3 +1,3 @@
-# TFS-CreateDefaultWorkItems
+# Dot Net Sample Projects for Beginners to Understand C#
 
-##Connects to TFS API and creates commonly required  tasks in PBI/Bugs automatically
+##List of DotNet
