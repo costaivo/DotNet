@@ -1,0 +1,67 @@
+﻿@model TodoApp.Models.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @using (Html.BeginForm("AddItem", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="form-group">
+            @Html.HiddenFor(m => m.DeleteKey, new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Item, new { @class = "form-control" })
+                <input type="submit" class="btn btn-primary" value="Add" />
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                
+            </div>
+        </div>
+
+        <div>
+            <h3>Your Todo List</h3>
+            <ul>
+                @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
+                {
+                    <li>
+                        @Html.Label(description.Value)
+                        <input class="btn button btn-danger" type="button" value="Remove" onclick="location.href='@Url.Action("RemoveItem", "Home", new { DeleteKey = @description.Key})'" />
+                        <input class="btn button btn-warning" type="button" value="Edit" onclick="location.href='@Url.Action("EditItem", "Home", new { DeleteKey = @description.Key})'" />
+                        @*<input type="button" value="Edit" onclick="EditItem(description.Key, description.Value)"/>*@
+                    </li>
+                }
+            </ul>
+        </div>
+
+    }
+
+</div>
+
+<script>
+    function EditItem(id, text) {
+        @*@Model.DeleteKey = id;*@
+        $("#item").focus();
+        $("#item").text(text);
+        alert(id + text);
+    }
+</script>
+
+<style type="text/css">
+    li {
+        margin: 5px 0px 0px 0px;
+        border-bottom: 1px solid grey;
+    }
+
+    .button {
+        margin: 0px 5px 0px 5px;
+        float: right;
+    }
+</style>
+
+@*<div class="jumbotron">
+        @Html.TextBox("", "", new {Id="Description"});
+        <input type="button" value="Add"  onclick="location.href='@Url.Action("AddItem", "Home",  '"/>
+        <h1>ASP.NET</h1>
+
+    </div>*@
+
+    >
