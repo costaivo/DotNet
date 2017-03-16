@@ -1,9 +1,9 @@
-﻿@model TodoApp.Models.HomeViewModel
+﻿@model TodoApp.Models.ToDoViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "ToDo Application";
 }
 
-<div class="jumbotron">
+<div class="container">
     @using (Html.BeginForm("AddItem", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         <div class="form-group">
@@ -20,7 +20,7 @@
         <div>
             <h3>Your Todo List</h3>
             <ul>
-                @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
+                @foreach (KeyValuePair<int, string> description in TodoApp.Models.ToDoViewModel.Todos)
                 {
                     <li>
                         @Html.Label(description.Value)
@@ -64,4 +64,4 @@
 
     </div>*@
 
-    >
+    
