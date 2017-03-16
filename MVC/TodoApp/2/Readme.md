@@ -1,1 +1,1 @@
-#Todo App : Database First Entity Framework
+#Todo App : Introduction to MVC application 

@@ -1,6 +1,6 @@
-﻿@model TodoApp.Models.ToDoViewModel
+﻿@model TodoApp.Models.HomeViewModel
 @{
-    ViewBag.Title = "ToDo Application";
+    ViewBag.Title = "Home Page";
 }
 
 <div class="container">
@@ -13,14 +13,14 @@
                 <input type="submit" class="btn btn-primary" value="Add" />
             </div>
             <div class="col-md-offset-2 col-md-10">
-                
+
             </div>
         </div>
 
         <div>
             <h3>Your Todo List</h3>
             <ul>
-                @foreach (KeyValuePair<int, string> description in TodoApp.Models.ToDoViewModel.Todos)
+                @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
                 {
                     <li>
                         @Html.Label(description.Value)
@@ -57,11 +57,5 @@
     }
 </style>
 
-@*<div class="jumbotron">
-        @Html.TextBox("", "", new {Id="Description"});
-        <input type="button" value="Add"  onclick="location.href='@Url.Action("AddItem", "Home",  '"/>
-        <h1>ASP.NET</h1>
 
-    </div>*@
-
-    
+  
