@@ -1,32 +1,31 @@
 ﻿@model TodoApp.Models.HomeViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "ToDo";
 }
 
 <div class="container">
-    @using (Html.BeginForm("AddItem", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("AddItem", "ToDo", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <div class="form-group">
+        <label for="example-text-input" class="col-2 col-form-label">Text</label>
+        <div class="form-group row">
             @Html.HiddenFor(m => m.DeleteKey, new { @class = "form-control" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.Item, new { @class = "form-control" })
-                <input type="submit" class="btn btn-primary" value="Add" />
             </div>
-            <div class="col-md-offset-2 col-md-10">
-
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Add" />
             </div>
         </div>
 
         <div>
-            <h3>Your Todo List</h3>
-            <ul>
+            <h3>Todo List</h3>
+            <ul class="list-group">
                 @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
                 {
-                    <li>
+                    <li class="list-group-item">
                         @Html.Label(description.Value)
-                        <input class="btn button btn-danger" type="button" value="Remove" onclick="location.href='@Url.Action("RemoveItem", "Home", new { DeleteKey = @description.Key})'" />
-                        <input class="btn button btn-warning" type="button" value="Edit" onclick="location.href='@Url.Action("EditItem", "Home", new { DeleteKey = @description.Key})'" />
-                        @*<input type="button" value="Edit" onclick="EditItem(description.Key, description.Value)"/>*@
+                        <input class="btn button btn-danger" type="button" value="Remove" onclick="location.href='@Url.Action("RemoveItem", new { DeleteKey = @description.Key})'" />
+                        <input class="btn button btn-warning" type="button" value="Edit" onclick="location.href='@Url.Action("EditItem", new { DeleteKey = @description.Key})'" />
                     </li>
                 }
             </ul>
