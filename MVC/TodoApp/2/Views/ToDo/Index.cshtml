@@ -6,7 +6,7 @@
 <div class="container">
     @using (Html.BeginForm("AddItem", "ToDo", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <label for="example-text-input" class="col-2 col-form-label">Text</label>
+        <label for="example-text-input" class="col-2 col-form-label">ToDo</label>
         <div class="form-group row">
             @Html.HiddenFor(m => m.DeleteKey, new { @class = "form-control" })
             <div class="col-md-10">
@@ -18,17 +18,29 @@
         </div>
 
         <div>
-            <h3>Todo List</h3>
-            <ul class="list-group">
-                @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
+            @if (TodoApp.Models.HomeViewModel.Todos.Count > 0)
+            {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Todo List</th>
+                    </tr>
+                </thead>
+                <tbody>
+               @foreach (KeyValuePair<int, string> description in TodoApp.Models.HomeViewModel.Todos)
                 {
-                    <li class="list-group-item">
-                        @Html.Label(description.Value)
-                        <input class="btn button btn-danger" type="button" value="Remove" onclick="location.href='@Url.Action("RemoveItem", new { DeleteKey = @description.Key})'" />
-                        <input class="btn button btn-warning" type="button" value="Edit" onclick="location.href='@Url.Action("EditItem", new { DeleteKey = @description.Key})'" />
-                    </li>
-                }
-            </ul>
+                <tr>
+                    <td>@Html.Label(description.Value)</td>
+                    <td>
+                        <a class="btn btn-danger btn-xs" style="float: right;" href='@Url.Action("RemoveItem", "ToDo", new { DeleteKey = @description.Key })'>
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+               }
+                </tbody>
+            </table>
+            }
         </div>
 
     }
