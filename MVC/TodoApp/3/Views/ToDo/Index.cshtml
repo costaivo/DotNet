@@ -14,7 +14,7 @@
                 @Html.TextBoxFor(m => m.Item, new { @class = "form-control" })
             </div>
             <div class="col-2">
-                <input type="submit" class="btn btn-primary" value="Add" id="btnAddEdit" onclick="AddItem()" />
+                <input type="submit" class="btn btn-primary" value="Add" id="btnAddEdit" onclick="AddItem()"/>
             </div>
         </div>
 
@@ -50,17 +50,17 @@
 
 <script>
     $(document).ready(function(){
-
+       
     });
     function EditItem(id,text) {
         $("#Item").focus();
         $("#DeleteKey").val(id);
         $("#Item").val(text);
-        $("#btnAddEdit").val("Edit");
+        $("#btnAddEdit").val("Add/Edit");
     }
     function AddItem(){
             $("#btnAddEdit").val("Add");
-
+    
     }
 </script>
 
