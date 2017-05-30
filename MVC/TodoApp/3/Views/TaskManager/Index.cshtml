@@ -1,0 +1,68 @@
+﻿@using TodoApp.Models;
+@{
+    
+    ViewBag.Title = "ToDo";
+}
+
+<div class="container">
+
+    @using(Html.BeginForm("AddItem", "ToDo", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <label for="example-text-input" class="col-2 col-form-label">ToDo</label>
+        <div class="form-group row">
+            @Html.HiddenFor(m => m.DeleteKey, new { @class = "form-control" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Item, new { @class = "form-control" })
+            </div>
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Add" id="btnAddEdit" onclick="AddItem()" />
+            </div>
+        </div>
+    }
+        <div>
+            @if(TodoApp.Models.TodoList.Todos.Count > 0)
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Todo List</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(ToDoItem item in TodoApp.Models.TodoList.Todos)
+                        {
+                            <tr>
+                                <td><a onclick="EditItem(@item.Id,'@item.TaskName')">@Html.Label(item.TaskName)</a></td>
+                                <td>
+                                    <a class="btn btn-danger btn-xs" style="float: right;" href='@Url.Action("RemoveItem", "ToDo", new { DeleteKey = @item.Id })'>
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+
+    
+
+</div>
+
+<script>
+    $(document).ready(function(){
+
+    });
+    function EditItem(id,text) {
+        $("#Item").focus();
+        $("#DeleteKey").val(id);
+        $("#Item").val(text);
+        $("#btnAddEdit").val("Add/Edit");
+    }
+    function AddItem(){
+            $("#btnAddEdit").val("Add");
+
+    }
+</script>
+
+

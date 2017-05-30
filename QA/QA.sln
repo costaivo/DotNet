@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fundamentals", "Fundamentals", "{5EBB9049-C747-46BA-A349-9E0C88C059A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Task", "01_Task", "{5B671D55-D3CB-43DF-8C1F-59B7F8670F14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{359B4895-40A4-45F2-8C46-9470C21F2755}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Task", "02_Task", "{C35EBDB8-C4FD-4212-948F-FA3057362DB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "DataTypes\DataTypes.csproj", "{B4D075AC-4088-4333-81F1-AC428CDE91F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{359B4895-40A4-45F2-8C46-9470C21F2755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359B4895-40A4-45F2-8C46-9470C21F2755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359B4895-40A4-45F2-8C46-9470C21F2755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359B4895-40A4-45F2-8C46-9470C21F2755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D075AC-4088-4333-81F1-AC428CDE91F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D075AC-4088-4333-81F1-AC428CDE91F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D075AC-4088-4333-81F1-AC428CDE91F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D075AC-4088-4333-81F1-AC428CDE91F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B671D55-D3CB-43DF-8C1F-59B7F8670F14} = {5EBB9049-C747-46BA-A349-9E0C88C059A4}
+		{359B4895-40A4-45F2-8C46-9470C21F2755} = {5B671D55-D3CB-43DF-8C1F-59B7F8670F14}
+		{C35EBDB8-C4FD-4212-948F-FA3057362DB9} = {5EBB9049-C747-46BA-A349-9E0C88C059A4}
+		{B4D075AC-4088-4333-81F1-AC428CDE91F4} = {C35EBDB8-C4FD-4212-948F-FA3057362DB9}
+	EndGlobalSection
+EndGlobal
