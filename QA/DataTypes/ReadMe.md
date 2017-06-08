@@ -5,25 +5,22 @@
 
 ## Contents
 
-1. Creating a Console Application using C# Visual Studio 2015
+1. Variables
+2. Commonly Used Data Types
 1. Running a Console Application using Visual Studio 2015
 
 
+### Variables
 
-### Creating a Console Application using C# Visual Studio 2015
 
-* Open VS and click on the File > New > Project
-* Select a **Console Application** template. 
-* Set the name of the application as **HelloWorld**
-* Write the below line of code in the Main Method
+### Data Types
+
+* Value Types
+* Reference Types
 ``` C#
     Console.WriteLine("Hello World");
     Console.ReadLine();
 ``` 
 
 
-### Running a Console Application using Visual Studio 2015
 
-* Run the application using the menu Debug > Start Debugging
-* Alternatively you can press F5 key to run the application
-* A Console will pop up with the **Hello World** printed on the screen. 
