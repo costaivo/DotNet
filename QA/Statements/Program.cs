@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Statements
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -158,8 +158,13 @@ namespace Statements
         #endregion
 
         #region Problem {Reverse String}
-        private static string ReverseString(string inputString)
+        public static string ReverseString(string inputString)
         {
+            if(inputString == null)
+                return null;
+            else if(inputString == string.Empty)
+                return string.Empty;
+
            var charArray=  inputString.ToCharArray();
             string reversedString ="";
            for(int i =charArray.GetLength(0)-1;i>=0;i--)
