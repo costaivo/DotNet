@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Console;
 
 namespace DataTypes
 {
@@ -11,23 +12,52 @@ namespace DataTypes
             //DataTypeIntro();
 
             //Enum Introduction
-            //EnumIntro();
+            // EnumIntro();
 
             //Value Types Demo
-           // ValueTypesDemo();
+            // ValueTypesDemo();
 
             //Passing Value type by reference to retain its value
-            PassByReferenceDemo();
+            // PassByReferenceDemo();
+
+
+            //  Student s = new Student();
+            // s.Age = 100;
+            //  IncrementAge(s);
+            // Console.WriteLine(s.Age);
 
             //Introduction to Var
-            VarIntro();
+            // VarIntro();
 
             //Arrays & List
-            ArrayIntro();
-            ListIntro();
+            // ArrayIntro();
+            //ListIntro();
 
+
+            //Generics
+            // WriteLine(addNumberInt(1, 2));
+            // WriteLine(addNumberFloat(1, 2));
+            // WriteLine(addNumberDouble(1, 2));
+            //WriteLine(addNumbers<double>(1, 2));
+
+            //  GetName()
+
+
+            Person p = new Person() {Firstname="Zohaib",LastName="Mulla" };
+            Student s = new Student {Firstname="Gaurav",LastName="Borkar" };
+
+            WriteLine(p.ToString());
+            WriteLine(s.ToString());
+
+
+            ReadKey();
         } 
 
+
+        //single line comments
+        /*
+         * This is a multiline comments
+         */ 
         private static void DataTypeIntro()
         {
             /* C# is a Strongly Typed Language. i.e you need to define the data type before using the variable. */
@@ -38,10 +68,23 @@ namespace DataTypes
            */
 
             int age = 10;
+            long years = age;
+
+            age =(int) years;
+
             float height =5.9f; // For Float Data Type you need to put the f at the end of the number
+            double b = height;
+
             string name ="Ivo Costa";
 
+            char c ='x';
+            name = c.ToString();
+
+           
+
             Console.WriteLine(string.Format("My Name is {0}, i am {1} years old. My Height is {2}", name, age, height));
+            Console.WriteLine("My Name is "+ name +", i am "+age+" years old. My Height is " + height);
+            Console.WriteLine("My Name is {name}, i am {age} years old. My Height is {height}"); //String Interpolation
             Console.ReadKey();
 
         }
@@ -59,7 +102,7 @@ namespace DataTypes
         }
         public enum Designation
         {
-            Trainee,
+            Trainee=4,
             JuinorProgramer,
             Developer,
             SeniorProgrammer,
@@ -97,6 +140,11 @@ namespace DataTypes
         {
             number = number + 10;
         }
+
+        private static void IncrementAge(Student student)
+        {
+            student.Age = student.Age + 10;
+        }
         #endregion
 
         #region Var
@@ -129,10 +177,11 @@ namespace DataTypes
             return intArray;
         }
 
-        private static List<int> ListIntro()
+        private static List<double> ListIntro()
         {
             //Add using system.collections.generic
-            List<int> lstIntergers = new List<int>();
+            List<double> lstIntergers = new List<double>();
+        
             lstIntergers.Add(1);
             lstIntergers.Add(2);
 
@@ -140,8 +189,91 @@ namespace DataTypes
 
             return lstIntergers;
         }
+
+
         #endregion
 
+        #region Genrics
+        private static int addNumberInt(int a, int b)
+        {
+            return a + b;
+        }
+        private static float addNumberFloat(float a, float b)
+        {
+            return a + b;
+        }
+        private static double addNumberDouble(double a, double b)
+        {
+            return a + b;
+        }
 
+        //private static T addNumbers<T>(T a, T b)
+        //{
+        //    return a + b;
+        //}
+        #endregion
+
+        #region Function Overloading
+        private static string GetName()
+        {
+            return "Neha";
+        }
+        private static int GetName(double s)
+        {
+            return 1;
+        }
+        private static string GetName(string prefix)
+        {
+            return prefix + " Neha";
+        }
+        private static string GetName(int prefix)
+        {
+            string name = "Neha";
+            switch(prefix)
+            { case 1:
+                    name = "Miss " + name;
+                    break;
+                default:
+                    break; 
+            }
+            return name;
+        }
+
+
+        #endregion
+
+        #region Class 
+        public class Person
+        {
+            public string Firstname { get; set; }
+            public string LastName { get; set; }
+
+            public int Age { get; set; }
+
+            public override string ToString()
+            {
+                return GetName();
+            }
+
+            private string GetName()
+            {
+                return Firstname + " " + LastName;
+            }
+            public virtual string MyAge()
+            {
+                return Age.ToString();
+            }
+        }
+
+        public class Student: Person
+        {
+
+            public override string MyAge()
+            {
+                return "My age is :" + Age.ToString();
+            }
+
+        }
+        #endregion
     }
 }
